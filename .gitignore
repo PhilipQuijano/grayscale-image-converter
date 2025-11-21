@@ -1,0 +1,39 @@
+# Use echo or open in VSCode to add content
+cat > .gitignore << 'EOF'
+# Compiled Object files
+*.o
+*.obj
+
+# Executables
+*.exe
+*.out
+a.out
+main
+
+# Assembly listings
+*.lst
+*.s
+
+# Debug files
+*.dSYM/
+*.su
+
+# IDE specific
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Test outputs
+tests/test_images/output/*
+!tests/test_images/output/.gitkeep
+
+# Build directory
+build/
+bin/
+EOF
