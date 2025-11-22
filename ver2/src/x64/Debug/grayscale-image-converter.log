@@ -1,0 +1,5 @@
+﻿  Performing Custom Build Tools
+  image-processing.c
+  main.c
+  Generating Code...
+  grayscale-image-converter.vcxproj -> D:\Ave\Programming Projects\source\grayscale-image-converter\x64\Debug\grayscale-image-converter.exe
