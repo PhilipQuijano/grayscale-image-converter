@@ -1,8 +1,11 @@
-# Group Information | Group 
- - Namuag
- - Quijano
+# Grayscale Image Converter (C + x86-64 Assembly)
 
-# Grayscale Image Converter
+## Group Information: GROUP 11
+**Members:**
+- Namuag
+- Quijano
+
+**Section:** S18B 
 
 A C and x86-64 assembly program that converts single-precision float pixel values (0.0 - 1.0) to 8-bit integers (0 - 255) using SIMD instructions.
 
@@ -28,7 +31,7 @@ A C and x86-64 assembly program that converts single-precision float pixel value
 The assembly implementation demonstrates high efficiency, processing **1 million pixels in approximately 1.27 milliseconds**.
 -   **Throughput:** ~789 Million pixels per second.
 -   **Optimization:** By using SIMD registers (`XMM`), the program minimizes memory overhead and performs arithmetic operations directly in the hardware floating-point unit, resulting in near-instantaneous conversion for standard image sizes.
-- Please view the **Verification** folder to see screenshots of the test cases and for correctness checking.
+- Please view the **Verification** folder to see screenshot of the test cases and for correctness checking.
 
 ## Build Instructions
 ``````bash
@@ -49,11 +52,8 @@ gcc src/main.o src/image_processing.o src/imgCvtGryFltArrEntries.o -o grayscale_
 ./grayscale_converter.exe
 ``````
 
-## Usage
-See ``examples/sample_usage.c`` for usage examples.
-
 ## Project Structure
 - ``src/`` - Source code (C and assembly)
-- ``tests/`` - Test files and test images
+- ``v2/`` - Alternative implementation programmed by Namuag
 - ``docs/`` - Documentation
-- ``examples/`` - Usage examples
+- ``Verification.`` - Screenshots of test cases and correctness checks

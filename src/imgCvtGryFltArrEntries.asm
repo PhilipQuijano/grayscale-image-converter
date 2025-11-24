@@ -1,5 +1,6 @@
 section .data
     const_255 dd 255.0      ; Constant 255.0 for multiplication
+    const_0_5 dd 0.5        ; Rounding logic fix
 
 section .text
     bits 64                 ; Specify 64-bit mode
@@ -9,18 +10,20 @@ section .text
 imgCvtGryFltArrEntries:
     ; Load constant 255.0 into XMM1 (for all conversions)
     movss xmm1, dword [rel const_255]
-    
+    movss xmm2, dword [rel const_0_5] ; Load 0.5 
+
     ; Initialize loop counter
     xor r9, r9              ; r9 = 0 (index counter, r9 is volatile so safe to use)
 
 .convert_loop:
     cmp r9, r8              
-    jge .done             
-    movss xmm0, dword [rcx + r9*4]    ; xmm0 = float_array[r9] (SIMD scalar load)
+    jge .done      
 
+    movss xmm0, dword [rcx + r9*4]    ; xmm0 = float_array[r9] (SIMD scalar load)
     mulss xmm0, xmm1                   ; xmm0 *= xmm1 (255.0)
     
-    cvtss2si eax, xmm0                 ; eax = (int)round(xmm0)
+    addss xmm0, xmm2                  ; Add 0.5 to the result
+    cvttss2si eax, xmm0               ; Convert with TRUNCATION (cvttss2si)
     
     test eax, eax
     jns .check_upper_bound             ; if eax >= 0, check upper bound
