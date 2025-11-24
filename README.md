@@ -9,6 +9,9 @@
 
 A C and x86-64 assembly program that converts single-precision float pixel values (0.0 - 1.0) to 8-bit integers (0 - 255) using SIMD instructions.
 
+## Youtube Demonstration link
+https://youtu.be/HYL-ik1AQ6A
+
 ## Features
 - Float-based and integer-based grayscale conversion
 - SIMD optimized assembly routines
