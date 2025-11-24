@@ -49,7 +49,7 @@ gcc -Wall -Wextra -O2 -Isrc -c src/image_processing.c -o src/image_processing.o
 gcc src/main.o src/image_processing.o src/imgCvtGryFltArrEntries.o -o grayscale_converter.exe
 
 # Run the program
-./grayscale_converter.exe
+grayscale_converter.exe
 ``````
 
 ## Project Structure
